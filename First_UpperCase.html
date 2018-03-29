@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>JS Challenge</title>
+    </head>
+    <body>
+        <script lang="javascript" type="text/javascript">
+             //Uppercasing first letter
+             function uppercaseLetter(str){
+                return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+               }
+            document.write(uppercaseLetter("this is a test.") + "<br>");
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,229 @@
+<html>
+    <head>
+        <title>JS Challenge</title>
+    </head>
+    <body>
+        <script lang="javascript" type="text/javascript">
+            //Reversing String
+            function revStri(stringValue){
+                return stringValue.split("").reverse("").join("");
+            }
+           document.write(revStri("Hello") + "<br>");
+
+    
+            //String in Alphabetical Order
+            function alphaStri(stringValue){
+                return stringValue.split("").sort().join("");
+                
+            }
+            document.write(alphaStri("hello") + "<br>");
+
+            //Uppercasing first letter
+            function uppercaseLetter(str){
+                return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+               }
+            document.write(uppercaseLetter("this is a test.") + "<br>");
+
+            //count vowel
+            function countVowel(str){
+                var count = 0;
+                for (var i = 0; i < str.length; i++){      
+                    if(str.charAt(i).match(/[aeiouAEIOU]/)){
+                        count += 1;
+                    }
+                }
+                return count;
+            }
+            document.write(countVowel("abcdeiouz") + "<br>");
+
+            //datatype
+            function typeArg(a){
+                return typeof(a);
+            }
+            document.write(typeArg(34) + "<br>");
+
+            //longest country name
+            function longestCountry(arr){
+                var point = 0;
+                var largest;
+                for(var i = 0; i< arr.length; i++){
+                    if(arr[i].length > point){
+                        point = arr[i].length;
+                        largest = arr[i];
+                    }
+                }
+                return largest;
+            }
+            document.write(longestCountry(['nepal','combodia','USA']) + "<br>");
+
+            //Array Or Not
+            function isArr(a){
+                return Array.isArray(a);
+            }
+            document.write(isArr(['ram','shyam']) + "<br>");
+
+            //clone array
+            function cloneArr(arr){
+                var clone = arr.slice(0);
+                return clone;
+            }
+            document.write(cloneArr(['ram','shyam','hari']) + "<br>");
+
+            //SORTING
+            //Bubble Sort
+            function bubbleSort(a)
+            {
+                var swapp;
+                var n = a.length-1;
+                var x=a;
+                do {
+                    swapp = false;
+                    for (var i=0; i < n; i++)
+                    {
+                        if (x[i] < x[i+1])
+                        {
+                        var temp = x[i];
+                        x[i] = x[i+1];
+                        x[i+1] = temp;
+                        swapp = true;
+                        }
+                    }
+                    n--;
+                } while (swapp);
+            return x; 
+            }
+            document.write(bubbleSort([1,9,2,8,3]));
+            document.write("<br>");
+
+
+            //find duplicate in array
+            function findDuplicate(arr) {
+                var len=arr.length;
+                var finalArr = [];
+                var obj = {}; 
+                for (var i=0; i<len; i++)
+                {
+                obj[arr[i]]=0;
+                }
+                for (i in obj) {
+                finalArr.push(i);
+                }
+                return finalArr;
+            }
+            document.write(findDuplicate([1,2,3,3,3,2,6,1,8]) + "<br>");
+
+            //union of array
+            function unionArr(arr1,arr2){
+                var result = [...new Set([...arr1,...arr2])];
+                return result;
+            }
+            document.write(unionArr([1,23,65,45,56],[45,67,78,56]) + "<br>");
+
+            //random item from array
+            function randomItem(Arr){
+                return Arr[Math.floor(Math.random()*Arr.length)];
+            }
+            document.write(randomItem([1,45,32,78])+ "<br>");
+
+            //FizzBuzz
+            function fizzBuzz(){
+                for(var i = 0; i < 100 ; i++){
+                    if(i % 3 == 0 && i % 5 == 0){
+                        document.write("FizzBuzz");
+                    }else if(i % 5 == 0){
+                        document.write("Buzz");
+                    }else if(i % 3 == 0){
+                        document.write("Fizz");
+                    }else{
+                        document.write(i);
+                    }
+                }
+            }
+            document.write(fizzBuzz() + "<br>");
+
+            //humanize number
+            function humanizeNumber(num){
+                var arr = num.toString().split("");
+                var lastIndex =  arr.length-1;
+                var result;
+                if(arr[lastIndex] == 1){
+                    result = num + "st";
+                } else if (arr[lastIndex] == 2){
+                    result = num + "nd";
+                }else if (arr[lastIndex] == 3){
+                    result = num + "rd";
+                }else{
+                    result = num + "th";
+                }
+                document.write(result);
+            }
+            humanizeNumber(381);
+            humanizeNumber(382);
+            humanizeNumber(383);
+            humanizeNumber(384);
+
+            document.write("<br>");
+
+             //datatype using arrow function
+            function typeArgArrow(a){
+                a.map((b) => {
+                    document.write(typeof(b));
+                });
+            }
+            typeArgArrow(["ES6",56])
+            document.write("<br>");
+
+
+            //USING CASES
+            //using ForEach
+            function usingForEach(){
+                var num = [1,2,3];
+                num.forEach(function(element){
+                    document.write(element + "<br>");
+                });
+
+            }
+            usingForEach();
+
+            //using Map
+            function usingMap(num){
+                var arr = num.map(x => x + 1);
+                document.write(arr);
+            }
+            usingMap([1,2,3]);
+            document.write("<br>");
+
+            //using Fliter
+            function usingFilter(num){
+                var arr = num.filter(x => x > 5);
+                document.write(arr);
+            }
+            usingFilter([1,2,3,7,8,9]);
+            document.write("<br>");
+
+            //using Some
+            function usingSome(num){
+                var arr = num.some(x => x > 0);
+                document.write(arr);
+            }
+            usingSome([1,2,3,4,5]);
+            document.write("<br>");
+
+            //using Every
+            function usingEvery(num){
+                var arr = num.every(x => x > 2);
+                document.write(arr);
+            }
+            usingEvery([1,2,3,4]);
+            document.write("<br>");
+
+            //using Reduce
+            function usingReduce(num){
+                var result = num.reduce((a,b) => a + b);
+                document.write(result);
+            }
+            usingReduce([1,2,3,4,5]);
+            document.write("<br>");
+        </script>
+    </body>
+</html>
